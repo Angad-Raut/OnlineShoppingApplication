@@ -1,0 +1,30 @@
+server:
+  port: 9097
+
+eureka:
+  instance:
+    client:
+      serviceUrl:
+        defaultZone: http://localhost:8761/eureka/
+
+spring:
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        jdbc.lob.non_contextual_creation: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/onlinePaymentDB
+    username: postgres
+    password: root
+    driverClassName: org.postgresql.Driver
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
